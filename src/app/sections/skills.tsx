@@ -15,10 +15,31 @@
  */
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { portfolioConfig } from '@/app/config';
 import { isMinimal } from '@/app/utils';
+import {
+  SiPython,
+  SiMysql,
+  SiR,
+  SiScikitlearn,
+  SiPandas,
+  SiNumpy,
+  SiPlotly,
+  SiStreamlit,
+  SiSqlite,
+  SiPycharm,
+  SiJupyter,
+  SiRstudioide,
+} from 'react-icons/si';
+import { BiLogoVisualStudio } from 'react-icons/bi';
+import {
+  FaChartArea,
+  FaChartBar,
+  FaChartLine,
+  FaFileExcel,
+  FaFilePowerpoint,
+} from 'react-icons/fa6';
 
 const CategoryIcons = {
   Languages: () => (
@@ -221,6 +242,29 @@ const Skills: React.FC = () => {
     return <Icon />;
   };
 
+  const skillIcons: Record<string, React.ReactNode> = {
+    Python: <SiPython />,
+    SQL: <SiMysql />,
+    MySQL: <SiMysql />,
+    R: <SiR />,
+    LightGBM: <FaChartLine />,
+    'Scikit-learn': <SiScikitlearn />,
+    Pandas: <SiPandas />,
+    NumPy: <SiNumpy />,
+    Matplotlib: <FaChartArea />,
+    Seaborn: <FaChartArea />,
+    Plotly: <SiPlotly />,
+    Streamlit: <SiStreamlit />,
+    Excel: <FaFileExcel />,
+    'Power BI': <FaChartBar />,
+    PowerPoint: <FaFilePowerpoint />,
+    SQLite: <SiSqlite />,
+    PyCharm: <SiPycharm />,
+    Jupyter: <SiJupyter />,
+    'Visual Studio Code': <BiLogoVisualStudio />,
+    RStudio: <SiRstudioide />,
+  };
+
   const generateShadowStyle = (color: string) => {
     const rgbColor =
       color
@@ -280,14 +324,9 @@ const Skills: React.FC = () => {
                       className="flex items-center gap-2 px-3 py-2 bg-gray-800/70 rounded-full border border-gray-700 hover:border-emerald-500/50 transition-all duration-300 shadow-md hover:shadow-emerald-500/10"
                       style={generateShadowStyle(tech.color)}
                     >
-                      <Image
-                        src={tech.icon}
-                        alt={tech.name}
-                        width={16}
-                        height={16}
-                        className="w-4 h-4"
-                        style={{ filter: 'brightness(1.2)' }}
-                      />
+                      <span className="text-base text-gray-200">
+                        {skillIcons[tech.name] ?? '●'}
+                      </span>
                       <span className="text-sm text-gray-300">{tech.name}</span>
                     </div>
                     <div
