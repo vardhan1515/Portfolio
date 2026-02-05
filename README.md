@@ -11,17 +11,17 @@ Data science and analytics portfolio focused on end-to-end data workflows, machi
 ## Screenshots
 
 <div align="center">
-  <img src="docs/images/home.png" alt="Home" width="90%" />
+  <img src="public/SS1.png" alt="Screenshot 1" width="90%" />
 </div>
 
 <div align="center">
-  <img src="docs/images/about.png" alt="About" width="45%" />
-  <img src="docs/images/projects.png" alt="Projects" width="45%" />
+  <img src="public/SS2.png" alt="Screenshot 2" width="45%" />
+  <img src="public/SS3.png" alt="Screenshot 3" width="45%" />
 </div>
 
 <div align="center">
-  <img src="docs/images/skills.png" alt="Skills" width="45%" />
-  <img src="docs/images/connect.png" alt="Connect" width="45%" />
+  <img src="public/SS4.png" alt="Screenshot 4" width="45%" />
+  <img src="public/SS5.png" alt="Screenshot 5" width="45%" />
 </div>
 
 ## Highlights
