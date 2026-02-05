@@ -144,6 +144,7 @@ const ConnectWithMe: React.FC = () => {
       setStatus('success');
       setFormState({ name: '', email: '', subject: '', message: '' });
     } catch (err) {
+      console.log(err)
       setStatus('error');
       setErrorMessage('Something went wrong. Please try again.');
     }
