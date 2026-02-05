@@ -23,8 +23,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="py-8 px-4 border-t border-gray-800">
       <div className="container mx-auto text-center">
-        <p className="text-gray-300 text-sm">{copyright}</p>
-        <p className="text-gray-400 text-xs mt-2">{tagline}</p>
+        <p className="text-gray-300 text-[15px]">{copyright}</p>
+        <p className="text-gray-400 text-[14px] mt-2">{tagline}</p>
       </div>
     </footer>
   );

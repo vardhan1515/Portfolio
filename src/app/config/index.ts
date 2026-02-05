@@ -36,7 +36,7 @@ export const portfolioConfig: PortfolioConfig = {
     },
     links: [
       { href: 'home', label: 'Home' },
-      { href: 'about', label: 'Resume' },
+      { href: 'about', label: 'About' },
       { href: 'projects', label: 'Projects' },
       { href: 'skills', label: 'Skills' },
       { href: 'connect', label: 'Connect' },
@@ -53,16 +53,16 @@ export const portfolioConfig: PortfolioConfig = {
         'Analytics & Visualization',
       ],
       description:
-        'Data science graduate student at SUNY Buffalo with hands-on experience in predictive maintenance, analytics, and dashboarding.',
-      scrollIndicatorText: 'Scroll to view my resume',
+        'Dedicated to bridging the gap between raw data and real-world applications by building intuitive, scalable solutions that transform information into intelligence.',
+      scrollIndicatorText: 'Scroll to explore my work',
     },
 
     about: {
-      title: 'Resume',
+      title: 'About',
       subtitle: 'Overview',
       summary: [
-        'Data science graduate student at the University at Buffalo with experience in predictive maintenance, analytics, and visualization.',
-        'Comfortable with Python, SQL, and time-series modeling, plus clear stakeholder communication and cross-functional collaboration.',
+        'Data science graduate student at the University at Buffalo, driven by curious questions, stubborn datasets, and systems that quietly do the right thing. My work spans data analysis, machine learning, and analytics engineering, using Python, SQL, and modern ML tools to turn raw data into models, insights, and interactive visualizations.',
+        'I enjoy taking problems end to end, from messy inputs, data cleaning, and feature engineering to predictive modeling, dashboards, and clear communication. The goal is always the same: build solutions that are accurate, scalable, interpretable, and genuinely useful in the real world.',
       ],
       education: [
         {
@@ -83,48 +83,49 @@ export const portfolioConfig: PortfolioConfig = {
       experience: [
         {
           company: 'Machinery Monitoring Systems, LLC',
-          role: 'Data Engineer (Intern)',
+          role: 'Data Engineer Intern',
           dates: 'Aug 2025 - Dec 2025',
+          logo: '/MMS_logo.jpg',
           highlights: [
-            'Built a real-time predictive maintenance fault detection system for rotating machinery using tri-axial vibration sensing.',
-            'Prepared and labeled 21,000+ vibration samples across four classes and standardized time-series preprocessing.',
-            'Trained MiniRocket + Ridge Classifier to 99.96% accuracy with a ~1.7 MB deployable model.',
+            'Built a real-time predictive maintenance and fault detection system for rotating machinery using tri-axial vibration sensor data.',
+            'Performed large-scale time-series data labeling and preprocessing, including filtering, normalization, and dataset preparation for training and testing.',
+            'Trained and evaluated machine-learning models with MiniRocket and a Ridge Classifier, optimizing for accuracy and model size.',
+            'Delivered a 99.96% accurate, lightweight, deployable solution balancing performance, efficiency, and production readiness.',
           ],
         },
         {
-          company: 'Accenture Data Analytics and Visualization Job Simulation',
-          role: 'Data Analyst (Intern)',
+          company: 'Accenture',
+          role: 'Data Analytics & Visualization Intern (Simulation)',
           dates: 'Oct 2023',
+          logo: '/Accenture_logo.png',
           highlights: [
-            'Analyzed seven datasets to identify content trends and inform strategic recommendations.',
-            'Built a PowerPoint deck and presentation to communicate insights to stakeholders.',
+            'Cleaned, modeled, and analyzed multiple datasets to identify trends in content performance and user engagement.',
+            'Applied exploratory data analysis, data transformation, and insight generation to support strategic recommendations.',
+            'Communicated findings through structured PowerPoint storytelling and a recorded walkthrough focused on stakeholder alignment.',
           ],
         },
         {
-          company: 'PwC Switzerland Power BI Job Simulation',
-          role: 'Power BI Analyst',
+          company: 'PwC Switzerland',
+          role: 'Power BI Analyst (Simulation)',
           dates: 'Sep 2023',
+          logo: '/pwc_switzerland_logo.jpg',
           highlights: [
-            'Built dashboards for executive reporting and investigated drivers of gender balance trends.',
+            'Designed interactive Power BI dashboards using data modeling, DAX measures, and visual analytics best practices.',
+            'Investigated root causes behind executive-level gender balance challenges and translated results into actionable insights.',
           ],
         },
         {
-          company: 'KPMG Data Analytics Consulting Virtual Internship',
-          role: 'Data Analyst (Intern)',
+          company: 'KPMG',
+          role: 'Data Analytics Consulting Intern (Simulation)',
           dates: 'Aug 2023',
+          logo: '/Kpmg_logo.jpg',
           highlights: [
-            'Performed data quality assessments and produced actionable insights for decision making.',
-            'Synthesized findings into concise presentations for leadership review.',
+            'Performed data quality assessments, validation checks, and structured analysis on complex datasets.',
+            'Extracted actionable insights using SQL-style logic and analytical reasoning and summarized them for business decisions.',
           ],
         },
       ],
-      certifications: [
-        'Python Programming - Internshala',
-        'Machine Learning & Artificial Intelligence - PrepInsta',
-        'Power BI & Business Intelligence - PrepInsta',
-        'Data Science - PrepInsta',
-        'Statistics - PrepInsta',
-      ],
+      certifications: [],
     },
 
     projects: {

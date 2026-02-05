@@ -187,14 +187,16 @@ const Projects: React.FC = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-display">
             {config.title}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
               {config.subtitle}
             </span>
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
-          <p className="mt-6 text-gray-300 max-w-2xl mx-auto">{config.description}</p>
+          <p className="mt-6 text-gray-300 max-w-2xl mx-auto text-[16.5px] md:text-[17.5px]">
+            {config.description}
+          </p>
         </motion.div>
 
         {/* Projects grid */}
@@ -214,15 +216,19 @@ const Projects: React.FC = () => {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <div
-                className={`bg-gray-800/30 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-500 h-full flex flex-col
+                className={`relative bg-gray-800/30 backdrop-blur-sm rounded-2xl overflow-hidden border transition-all duration-500 h-full flex flex-col
                 ${
                   hoveredProject === project.id
                     ? 'border-emerald-500/50 shadow-xl shadow-emerald-500/10 translate-y-[-5px]'
                     : 'border-gray-700/50 shadow-lg shadow-black/20'
                 }`}
               >
+                <span className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-emerald-400/20 to-fuchsia-500/20 blur-2xl" />
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-emerald-400 via-blue-500 to-fuchsia-500" />
+                <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.12),transparent_55%)]" />
                 {/* Project media with overlay */}
                 <div className="relative overflow-hidden aspect-video">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-950/70 via-transparent to-transparent opacity-80" />
                   {hoveredProject === project.id && project.gifUrl ? (
                     <Image
                       src={project.gifUrl}
@@ -328,17 +334,15 @@ const Projects: React.FC = () => {
                 <div className="p-6 pt-4 flex flex-col flex-grow">
                   {/* Project title with animated underline */}
                   <div className="flex items-center space-x-2">
-                    <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                    {/* Project type badge */}
-                    {project.type && (
-                      <div className="inline-flex items-center justify-center bg-emerald-500/10 text-emerald-300 border-emerald-500/20 text-xs font-semibold px-2 py-0.5 rounded-full shadow-inner">
-                        {project.type}
-                      </div>
-                    )}
+                    <h3 className="text-xl font-semibold text-white font-display">
+                      {project.title}
+                    </h3>
                   </div>
 
                   {/* Project description */}
-                  <p className="mt-2 text-gray-300 flex-grow">{project.description}</p>
+                  <p className="mt-2 text-gray-300 flex-grow text-[16px] md:text-[17px] text-justify">
+                    {project.description}
+                  </p>
 
                   {/* Technology tags */}
                   <div className="mt-5 flex flex-wrap gap-2">

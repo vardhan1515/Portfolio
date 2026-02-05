@@ -87,6 +87,7 @@ export interface AboutSection {
     role: string;
     dates: string;
     location?: string;
+    logo?: string;
     highlights: string[];
   }>;
   certifications: string[];

@@ -92,7 +92,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient background with mesh pattern */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800" />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950 to-gray-900" />
 
         {/* Subtle grid */}
         <div
@@ -142,7 +142,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
           >
             {/* Main heading */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 leading-tight font-display"
               variants={itemVariants}
             >
               <span className="text-white">{config.greeting} </span>
@@ -152,24 +152,24 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
             </motion.h1>
 
             {/* Animated typing text */}
-            <motion.div variants={itemVariants} className="h-12 mb-8 overflow-hidden">
+            <motion.div variants={itemVariants} className="h-12 mb-7 overflow-hidden">
               <div className="relative h-full flex items-center justify-center lg:justify-start">
                 {isMinimal ? (
                   // For mobile
-                  <span className="text-xl sm:text-2xl text-gray-300 flex justify-center flex-wrap">
+                  <span className="text-[18px] sm:text-[20px] text-white flex justify-center flex-wrap">
                     <span className="mr-2">I&apos;m passionate about</span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-cyan-100 to-blue-200">
                       {config.typingTexts[0]}
                     </span>
                   </span>
                 ) : (
                   // For desktop
-                  <span className="text-xl sm:text-2xl text-gray-300 flex flex-wrap">
+                  <span className="text-[18px] sm:text-[20px] text-white flex flex-wrap">
                     <span className="mr-2">I&apos;m passionate about</span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 via-cyan-100 to-blue-200">
                       {text}
                     </span>
-                    <span className="animate-blink ml-1 h-6 w-0.5 bg-emerald-400 self-center"></span>
+                    <span className="animate-blink ml-1 h-6 w-0.5 bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)] self-center"></span>
                   </span>
                 )}
               </div>
@@ -178,7 +178,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 mb-8"
+              className="text-[17px] md:text-[18px] text-gray-300 max-w-2xl mx-auto lg:mx-0 mb-8"
             >
               {config.description}
             </motion.p>
@@ -217,7 +217,7 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               {/* TechSphere component */}
               <TechSphere />
 
-              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-48 h-12 bg-gradient-to-t from-gray-900 to-transparent blur-lg"></div>
+              <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-48 h-12 bg-gradient-to-t from-gray-950 to-transparent blur-lg"></div>
             </motion.div>
           )}
         </div>

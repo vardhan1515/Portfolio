@@ -18,10 +18,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioConfig } from '@/app/config';
 import { isMinimal } from '@/app/utils';
+import emailjs from '@emailjs/browser';
 
 const ConnectWithMe: React.FC = () => {
   const config = portfolioConfig.sections.connect;
   const socials = config.socials;
+  const [formState, setFormState] = React.useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [status, setStatus] = React.useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = React.useState('');
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -110,6 +119,36 @@ const ConnectWithMe: React.FC = () => {
     });
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormState(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    setErrorMessage('');
+
+    try {
+      await emailjs.send(
+        'service_5j6j183',
+        'template_7nzc3ii',
+        {
+          from_name: formState.name,
+          from_email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+        },
+        'nMrcg1rOs2yJQZzGw'
+      );
+      setStatus('success');
+      setFormState({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage('Something went wrong. Please try again.');
+    }
+  };
+
   return (
     <section id="connect" className="py-24 relative">
       {/* Decorative elements */}
@@ -126,26 +165,122 @@ const ConnectWithMe: React.FC = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-display">
             {config.title}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
               {config.subtitle}
             </span>
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
-          <p className="mt-6 text-gray-300 max-w-2xl mx-auto">{config.description}</p>
+          <p className="mt-6 text-gray-300 max-w-2xl mx-auto text-[16.5px] md:text-[17.5px]">
+            {config.description}
+          </p>
         </motion.div>
 
-        {/* Social links grid */}
-        <motion.div
-          className="max-w-3xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">{renderSocialLinks()}</div>
-        </motion.div>
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+          {/* Social links grid */}
+          <motion.div
+            className="w-full h-full"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            <div className="grid grid-cols-1 gap-6 h-full">{renderSocialLinks()}</div>
+          </motion.div>
+
+          {/* Contact form */}
+          <motion.div
+            className="w-full h-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="relative rounded-[32px] border border-transparent p-[2px] shadow-2xl h-full">
+              <span className="pointer-events-none absolute inset-0 rounded-[32px] bg-[conic-gradient(from_140deg_at_50%_50%,rgba(16,185,129,0.45),rgba(59,130,246,0.35),rgba(217,70,239,0.25),rgba(16,185,129,0.45))] opacity-70 blur-xl" />
+              <div className="relative rounded-[30px] border border-gray-700/60 bg-gray-900/70 p-8 md:p-10 shadow-[0_0_40px_rgba(16,185,129,0.15)] backdrop-blur-sm h-full flex flex-col">
+                <h3 className="text-2xl md:text-3xl font-semibold text-white font-display">
+                  Send a Message
+                </h3>
+                <p className="mt-2 text-gray-200 text-[17.5px] md:text-[19px]">
+                  Have a question or want to work together? Drop a message and I’ll get back to you.
+                </p>
+
+            <form className="mt-8 grid grid-cols-1 gap-6 flex-1" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <label className="flex flex-col gap-2 text-sm text-gray-300">
+                  Name
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formState.name}
+                    onChange={handleChange}
+                    className="h-14 rounded-2xl border border-gray-700/60 bg-gray-950/70 px-4 text-gray-100 placeholder:text-gray-500 focus:border-emerald-400/60 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 text-base"
+                    placeholder="Your name"
+                  />
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-gray-300">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formState.email}
+                    onChange={handleChange}
+                    className="h-14 rounded-2xl border border-gray-700/60 bg-gray-950/70 px-4 text-gray-100 placeholder:text-gray-500 focus:border-emerald-400/60 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 text-base"
+                    placeholder="you@email.com"
+                  />
+                </label>
+              </div>
+
+              <label className="flex flex-col gap-2 text-sm text-gray-300">
+                Subject
+                <input
+                  type="text"
+                  name="subject"
+                  required
+                  value={formState.subject}
+                  onChange={handleChange}
+                  className="h-14 rounded-2xl border border-gray-700/60 bg-gray-950/70 px-4 text-gray-100 placeholder:text-gray-500 focus:border-emerald-400/60 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 text-base"
+                  placeholder="What is this about?"
+                />
+              </label>
+
+              <label className="flex flex-col gap-2 text-sm text-gray-300">
+                Message
+                <textarea
+                  name="message"
+                  required
+                  value={formState.message}
+                  onChange={handleChange}
+                  rows={5}
+                  className="rounded-2xl border border-gray-700/60 bg-gray-950/70 px-4 py-3 text-gray-100 placeholder:text-gray-500 focus:border-emerald-400/60 focus:outline-none focus:ring-2 focus:ring-emerald-400/20 text-base"
+                  placeholder="Write your message..."
+                />
+              </label>
+
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 px-7 py-3.5 text-sm font-semibold text-gray-900 shadow-lg transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-emerald-400/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === 'sending' ? 'Sending…' : 'Send Message'}
+                </button>
+                {status === 'success' && (
+                  <span className="text-emerald-300 text-sm">Message sent successfully.</span>
+                )}
+                {status === 'error' && (
+                  <span className="text-rose-300 text-sm">{errorMessage}</span>
+                )}
+              </div>
+            </form>
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         {/* Add a CSS animation for the gradient borders */}
         <style jsx global>{`

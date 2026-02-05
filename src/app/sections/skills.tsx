@@ -274,14 +274,18 @@ const Skills: React.FC = () => {
         .join(', ') || '0, 0, 0';
 
     return {
-      borderColor: `${color}20`,
-      boxShadow: `0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(${rgbColor}, 0.05))`,
+      borderColor: `${color}55`,
+      backgroundColor: `rgba(${rgbColor}, 0.14)`,
+      boxShadow: `0 8px 18px -10px rgba(${rgbColor}, 0.8), 0 0 0 1px rgba(${rgbColor}, 0.22)`,
     };
   };
 
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-24 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent"></div>
+      <div className="pointer-events-none absolute inset-0 opacity-35 bg-[radial-gradient(circle,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:26px_26px]" />
+      <div className="pointer-events-none absolute -left-24 top-12 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -290,56 +294,76 @@ const Skills: React.FC = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-display">
             {config.title}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
               {config.subtitle}
             </span>
           </h2>
           <div className="mt-4 h-1 w-20 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto rounded-full" />
-          <p className="mt-6 text-gray-300 max-w-2xl mx-auto">{config.description}</p>
+          <p className="mt-6 text-gray-300 max-w-2xl mx-auto text-[16.5px] md:text-[17.5px]">
+            {config.description}
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {skills.map((skillGroup, index) => (
+        <div className="flex flex-col gap-6">
+          {skills.map((skillGroup, index) => {
+            const accent = skillGroup.technologies[0]?.color ?? '#34d399';
+            return (
             <motion.div
               key={skillGroup.category}
               initial={sectionVariants.initial}
               whileInView={sectionVariants.animate}
               transition={isMinimal ? {} : { duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: '-100px' }}
-              className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-emerald-500/30 transition-all duration-300 shadow-lg"
+              className="group relative bg-gray-800/40 backdrop-blur-sm rounded-2xl p-5 border border-gray-700/50 transition-all duration-300 shadow-lg overflow-hidden"
+              style={{
+                borderColor: `${accent}30`,
+                boxShadow: `0 10px 30px -18px ${accent}55`,
+              }}
             >
-              <h3 className="text-xl font-semibold text-gray-200 mb-4 flex items-center gap-2">
-                <span className="w-6 h-6 rounded-md flex items-center justify-center">
-                  {getCategoryIcon(skillGroup.category)}
-                </span>
-                {skillGroup.category}
-              </h3>
+              <span className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-emerald-400/20 to-blue-500/20 blur-2xl opacity-70" />
+              <span className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-emerald-400 via-blue-500 to-fuchsia-500 opacity-60" />
+              <span className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.12),transparent_55%)]" />
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <span
+                    className="h-10 w-10 rounded-xl border border-emerald-500/30 bg-gray-950/60 flex items-center justify-center"
+                    style={{ boxShadow: `0 0 18px ${accent}55` }}
+                  >
+                    {getCategoryIcon(skillGroup.category)}
+                  </span>
+                  <div className="flex-1">
+                    <div className="text-lg font-semibold text-white tracking-wide">
+                      {skillGroup.category}
+                    </div>
+                    <div className="mt-1 h-1 w-full rounded-full bg-gradient-to-r from-emerald-400/80 via-blue-400/40 to-transparent" />
+                  </div>
+                </div>
 
-              <div className="flex flex-wrap gap-2">
-                {skillGroup.technologies.map((tech, techIndex) => (
-                  <div key={techIndex} className="group relative duration-300">
+                <div className="flex flex-wrap gap-2">
+                  {skillGroup.technologies.map(tech => (
                     <div
-                      className="flex items-center gap-2 px-3 py-2 bg-gray-800/70 rounded-full border border-gray-700 hover:border-emerald-500/50 transition-all duration-300 shadow-md hover:shadow-emerald-500/10"
+                      key={tech.name}
+                      className="group inline-flex items-center gap-2 rounded-full border border-gray-700/60 bg-gray-900/70 px-3 py-2 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-[0_12px_24px_rgba(16,185,129,0.25)]"
                       style={generateShadowStyle(tech.color)}
                     >
-                      <span className="text-base text-gray-200">
-                        {skillIcons[tech.name] ?? '●'}
+                      <span
+                        className="h-7 w-7 rounded-full flex items-center justify-center text-base ring-1 ring-white/15"
+                        style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#ffffff' }}
+                      >
+                        <span className="drop-shadow-[0_0_8px_rgba(255,255,255,0.45)]">
+                          {skillIcons[tech.name] ?? '●'}
+                        </span>
                       </span>
-                      <span className="text-sm text-gray-300">{tech.name}</span>
+                      <span className="text-sm font-semibold text-gray-100">{tech.name}</span>
                     </div>
-                    <div
-                      className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4/5 h-2 rounded-full bg-black/20 blur-sm opacity-50 transition-opacity duration-300 group-hover:opacity-70"
-                      style={{
-                        background: `radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 70%)`,
-                      }}
-                    ></div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

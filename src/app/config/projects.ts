@@ -25,7 +25,7 @@ export const projects: Project[] = [
     tags: ['Python', 'Scikit-learn', 'LightGBM', 'LSTM'],
     githubLink: 'https://github.com/vardhan1515',
     type: 'Machine Learning',
-    thumbnail: '/logo.svg',
+    thumbnail: '/Project-1.png',
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/vardhan1515/House-Prediction',
     liveLink: 'https://house-predict.streamlit.app',
     type: 'Web App',
-    thumbnail: '/logo.svg',
+    thumbnail: '/Project-2.png',
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/vardhan1515/Fly-Trend-Hub',
     liveLink: 'https://fly-trend-app.streamlit.app',
     type: 'Dashboard',
-    thumbnail: '/logo.svg',
+    thumbnail: '/Project-3.png',
   },
   {
     id: 4,
@@ -57,6 +57,6 @@ export const projects: Project[] = [
     tags: ['SQL', 'MySQL'],
     githubLink: 'https://github.com/vardhan1515',
     type: 'Data Engineering',
-    thumbnail: '/logo.svg',
+    thumbnail: '/Project-4.png',
   },
 ];

@@ -80,7 +80,7 @@ export default function Page() {
   if (!mounted) return null;
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen text-gray-200">
+    <div className="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 min-h-screen text-gray-100">
       <Head>
         <title>{`${portfolioConfig.siteMetadata.title} | Portfolio`}</title>
         <meta name="description" content={portfolioConfig.siteMetadata.description} />

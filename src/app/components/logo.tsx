@@ -22,40 +22,39 @@ import portfolioConfig from '@/app/config';
 
 const Logo: React.FC = () => {
   const { logo } = portfolioConfig.navigation;
+  const fullName = portfolioConfig.siteMetadata.author || logo.text;
+  const [imageError, setImageError] = React.useState(false);
+  const profileSrc = '/profile.png';
 
   return (
     <motion.div
-      className="flex items-center cursor-pointer space-x-1"
-      whileHover={{ rotate: [0, 2, -2, 0], transition: { duration: 0.4 } }}
+      className="group flex items-center cursor-pointer gap-3"
+      whileHover={{ y: -1, transition: { duration: 0.2 } }}
     >
-      {/* Left code bracket */}
-      <motion.span
-        className="font-mono text-emerald-400 text-xl"
-        initial={{ x: -10, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      >
-        {'{'}
-      </motion.span>
+      {!imageError ? (
+        <motion.div
+          className="relative"
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <img
+            src={profileSrc}
+            alt={`${logo.text} profile`}
+            className="h-12 w-12 rounded-full object-cover ring-2 ring-emerald-400/70 shadow-[0_10px_24px_rgba(0,0,0,0.5)]"
+            onError={() => setImageError(true)}
+          />
+          <span className="pointer-events-none absolute -inset-0.5 rounded-full bg-gradient-to-br from-emerald-400/40 to-blue-500/40 blur-md opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        </motion.div>
+      ) : null}
 
-      {/* Initials */}
       <motion.span
-        className="text-l font-bold"
-        initial={{ scale: 0.7, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.1 }}
+        className="text-[17px] font-semibold tracking-wide text-gray-100 px-3 py-1 rounded-full border border-emerald-400/40 bg-white/5"
+        initial={{ y: 4, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.05 }}
       >
-        {logo.text}
-      </motion.span>
-
-      {/* Right code bracket */}
-      <motion.span
-        className="font-mono text-emerald-400 text-xl"
-        initial={{ x: 8, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.2 }}
-      >
-        {'}'}
+        {fullName}
       </motion.span>
     </motion.div>
   );
