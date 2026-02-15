@@ -333,14 +333,14 @@ const Projects: React.FC = () => {
                 {/* Project content */}
                 <div className="p-6 pt-4 flex flex-col flex-grow">
                   {/* Project title with animated underline */}
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-start space-x-2 min-h-[3.5rem]">
                     <h3 className="text-xl font-semibold text-white font-display">
                       {project.title}
                     </h3>
                   </div>
 
                   {/* Project description */}
-                  <p className="mt-2 text-gray-300 flex-grow text-[16px] md:text-[17px] text-justify">
+                  <p className="mt-2 text-gray-300 flex-grow text-[16px] md:text-[17px] text-justify min-h-[8.5rem]">
                     {project.description}
                   </p>
 
