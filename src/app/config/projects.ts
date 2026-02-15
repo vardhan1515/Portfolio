@@ -23,7 +23,9 @@ export const projects: Project[] = [
     description:
       'End-to-end system for strength-training exercise recognition and repetition counting using wearable sensor data.',
     tags: ['Python', 'Scikit-learn', 'LightGBM', 'LSTM'],
-    githubLink: 'https://github.com/vardhan1515',
+    githubLink:
+      'https://github.com/vardhan1515/Smart-Workout-Tracking-using-Machine-Learning',
+    liveLink: 'https://smart-workout-tracking-using-machine-learning.streamlit.app',
     type: 'Machine Learning',
     thumbnail: '/Project-1.png',
   },
@@ -58,5 +60,25 @@ export const projects: Project[] = [
     githubLink: 'https://github.com/vardhan1515',
     type: 'Data Engineering',
     thumbnail: '/Project-4.png',
+  },
+  {
+    id: 5,
+    title: 'FIFA 21 Player Analytics: Exploring Attributes, Potential, and Market Value',
+    description:
+      'Performed EDA and preprocessing on FIFA 2021 player data, then built visual analytics for player comparisons, age distributions, and country-wise trends.',
+    tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly'],
+    githubLink: 'https://github.com/vardhan1515/FIFA-2021-Data-Analysis',
+    type: 'Data Analytics',
+    thumbnail: '/Project-5.png',
+  },
+  {
+    id: 6,
+    title: 'Software Industry Revealed: An EDA of Stack Overflow Survey Data 2022',
+    description:
+      'Analyzed 73K+ Stack Overflow 2022 survey responses, cleaned multi-select fields with one-hot encoding, and visualized developer demographics, tech preferences, and worked-vs-wanted gaps across languages and cloud platforms.',
+    tags: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
+    githubLink: 'https://github.com/vardhan1515/EDA-of-Stack-Overflow-Survey-Data-2022',
+    type: 'Data Analytics',
+    thumbnail: '/Project-6.png',
   },
 ];
