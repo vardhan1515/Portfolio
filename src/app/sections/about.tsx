@@ -164,6 +164,7 @@ const About = () => {
                 role: item.role,
                 company: item.company,
                 dates: item.dates,
+                location: item.location,
                 description: item.highlights.join(' '),
                 logo: item.logo,
               }))}

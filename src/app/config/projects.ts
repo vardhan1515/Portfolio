@@ -26,7 +26,6 @@ export const projects: Project[] = [
     githubLink:
       'https://github.com/vardhan1515/Smart-Workout-Tracking-using-Machine-Learning',
     liveLink: 'https://smart-workout-tracking-using-machine-learning.streamlit.app',
-    type: 'Machine Learning',
     thumbnail: '/Project-1.png',
   },
   {
@@ -37,7 +36,6 @@ export const projects: Project[] = [
     tags: ['Python', 'LightGBM', 'Streamlit'],
     githubLink: 'https://github.com/vardhan1515/House-Prediction',
     liveLink: 'https://house-predict.streamlit.app',
-    type: 'Web App',
     thumbnail: '/Project-2.png',
   },
   {
@@ -48,7 +46,6 @@ export const projects: Project[] = [
     tags: ['Python', 'SQLite', 'Streamlit', 'Plotly'],
     githubLink: 'https://github.com/vardhan1515/Fly-Trend-Hub',
     liveLink: 'https://fly-trend-app.streamlit.app',
-    type: 'Dashboard',
     thumbnail: '/Project-3.png',
   },
   {
@@ -58,7 +55,6 @@ export const projects: Project[] = [
       'Engineered an automated Structured Query Language (SQL) workflow for high-volume trade records covering ingestion, validation, data cleansing, and transformation, then implemented bulk insertion and aggregation logic to generate reliable reporting tables, reduce manual processing effort, and improve consistency in downstream analytics.',
     tags: ['SQL', 'MySQL'],
     githubLink: 'https://github.com/vardhan1515',
-    type: 'Data Engineering',
     thumbnail: '/Project-4.png',
   },
   {
@@ -68,7 +64,6 @@ export const projects: Project[] = [
       'Performed end-to-end exploratory data analysis (EDA) on FIFA 2021 player data using Pandas and NumPy, built a preprocessing workflow for missing-value handling and attribute standardization, and produced Matplotlib, Seaborn, and Plotly insights on player performance, age distribution, market value, and country-level trends.',
     tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly'],
     githubLink: 'https://github.com/vardhan1515/FIFA-2021-Data-Analysis',
-    type: 'Data Analytics',
     thumbnail: '/Project-5.png',
   },
   {
@@ -78,7 +73,15 @@ export const projects: Project[] = [
       'Analyzed 73K+ Stack Overflow 2022 responses with Pandas, engineered multi-select fields using one-hot encoding, and built Matplotlib and Seaborn analyses to uncover developer demographics, technology adoption patterns, and worked-versus-wanted gaps across languages and cloud platforms including Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).',
     tags: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
     githubLink: 'https://github.com/vardhan1515/EDA-of-Stack-Overflow-Survey-Data-2022',
-    type: 'Data Analytics',
     thumbnail: '/Project-6.png',
+  },
+  {
+    id: 7,
+    title: 'E-commerce Revenue & Retention Analysis',
+    description:
+      'Analyzed e-commerce transactions with SQL Server, Python, and Power BI to uncover a 3.12% repeat-customer rate and approximately $97K in revenue lost to cancellations, then built RFM customer segments, cohort retention analysis, and interactive dashboards to identify high-value, at-risk, and re-engagement opportunities.',
+    tags: ['SQL Server', 'Power BI', 'Python', 'Pandas', 'DAX'],
+    githubLink: 'https://github.com/vardhan1515',
+    thumbnail: '/Project-7.jpg',
   },
 ];

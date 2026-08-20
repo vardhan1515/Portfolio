@@ -54,9 +54,6 @@ export interface Project {
   /** Link to the project's GitHub repository */
   githubLink: string;
 
-  /** Type of project (Web, Mobile, Desktop, etc.) */
-  type: string;
-
   /** Optional live demo or deployment link */
   liveLink?: string;
 

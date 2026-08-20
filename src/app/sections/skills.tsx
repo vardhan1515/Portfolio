@@ -39,6 +39,8 @@ import {
   FaChartLine,
   FaFileExcel,
   FaFilePowerpoint,
+  FaBolt,
+  FaDatabase,
 } from 'react-icons/fa6';
 
 const CategoryIcons = {
@@ -209,6 +211,25 @@ const CategoryIcons = {
       <circle cx="16" cy="9" r="1" stroke="#f59e0b" fill="#f59e0b"></circle>
     </svg>
   ),
+  'Analytics Methods': () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#22d3ee"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="w-4 h-4"
+    >
+      <path d="M3 20h18" />
+      <path d="M5 16l4-5 4 3 6-8" />
+      <circle cx="5" cy="16" r="1" fill="#22d3ee" />
+      <circle cx="9" cy="11" r="1" fill="#22d3ee" />
+      <circle cx="13" cy="14" r="1" fill="#22d3ee" />
+      <circle cx="19" cy="6" r="1" fill="#22d3ee" />
+    </svg>
+  ),
   Default: () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +267,9 @@ const Skills: React.FC = () => {
     Python: <SiPython />,
     SQL: <SiMysql />,
     MySQL: <SiMysql />,
+    'SQL Server': <FaDatabase />,
     R: <SiR />,
+    DAX: <FaChartBar />,
     LightGBM: <FaChartLine />,
     'Scikit-learn': <SiScikitlearn />,
     Pandas: <SiPandas />,
@@ -263,6 +286,11 @@ const Skills: React.FC = () => {
     Jupyter: <SiJupyter />,
     'Visual Studio Code': <BiLogoVisualStudio />,
     RStudio: <SiRstudioide />,
+    'Time-Series Analysis': <FaChartLine />,
+    'Statistical Analysis': <FaChartArea />,
+    'ETL / Data Pipelines': <FaDatabase />,
+    'RFM & Cohort Analysis': <FaChartBar />,
+    'Energy Market Analytics': <FaBolt />,
   };
 
   const generateShadowStyle = (color: string) => {

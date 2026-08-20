@@ -17,6 +17,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import portfolioConfig from '@/app/config';
 
@@ -24,7 +25,7 @@ const Logo: React.FC = () => {
   const { logo } = portfolioConfig.navigation;
   const fullName = portfolioConfig.siteMetadata.author || logo.text;
   const [imageError, setImageError] = React.useState(false);
-  const profileSrc = '/profile.png';
+  const profileSrc = '/Profile.png';
 
   return (
     <motion.div
@@ -38,9 +39,11 @@ const Logo: React.FC = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <img
+          <Image
             src={profileSrc}
             alt={`${logo.text} profile`}
+            width={48}
+            height={48}
             className="h-12 w-12 rounded-full object-cover ring-2 ring-emerald-400/70 shadow-[0_10px_24px_rgba(0,0,0,0.5)]"
             onError={() => setImageError(true)}
           />

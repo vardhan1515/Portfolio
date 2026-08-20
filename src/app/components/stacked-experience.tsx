@@ -17,6 +17,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -25,6 +26,7 @@ export interface ExperienceCard {
   role: string;
   company: string;
   dates: string;
+  location?: string;
   description: string;
   logo?: string;
 }
@@ -148,9 +150,11 @@ const StackedExperience: React.FC<StackedExperienceProps> = ({ items, className 
           ref={carGlowRef}
           className="absolute right-0 top-1/2 h-6 w-6 -translate-y-1/2 rounded-full bg-amber-300/70 blur-xl opacity-40 transition-opacity"
         />
-        <img
+        <Image
           src="/car.png"
           alt="Car"
+          width={128}
+          height={96}
           className="h-[96px] w-[128px] object-contain mix-blend-multiply drop-shadow-[0_0_16px_rgba(16,185,129,0.6)]"
         />
       </div>
@@ -179,9 +183,11 @@ const StackedExperience: React.FC<StackedExperienceProps> = ({ items, className 
                         <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-emerald-400/50 via-blue-500/35 to-fuchsia-500/35 blur-md" />
                         <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-emerald-400/40 bg-gray-900/90 shadow-[0_0_18px_rgba(16,185,129,0.6)]">
                           {item.logo ? (
-                            <img
+                            <Image
                               src={item.logo}
                               alt={`${item.company} logo`}
+                              width={28}
+                              height={28}
                               className="h-7 w-7 rounded-md bg-white p-1 object-contain"
                               style={{ filter: 'contrast(1.2) saturate(1.15)' }}
                             />
@@ -198,9 +204,11 @@ const StackedExperience: React.FC<StackedExperienceProps> = ({ items, className 
 
                       <div className="flex items-center gap-4">
                         {item.logo ? (
-                          <img
+                          <Image
                             src={item.logo}
                             alt={`${item.company} logo`}
+                            width={64}
+                            height={64}
                             className="h-16 w-16 rounded-xl bg-white p-2.5 shadow-md ring-1 ring-white/70 object-contain"
                             style={{ filter: 'contrast(1.25) saturate(1.2)' }}
                           />
@@ -212,8 +220,9 @@ const StackedExperience: React.FC<StackedExperienceProps> = ({ items, className 
                           <div className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-cyan-300 to-blue-400 font-semibold text-lg md:text-xl">
                             {item.company}
                           </div>
-                          <div className="text-gray-400 text-[14px] uppercase tracking-[0.3em] font-mono">
+                          <div className="text-gray-400 text-[14px] uppercase tracking-[0.2em] font-mono">
                             {item.dates}
+                            {item.location ? ` · ${item.location}` : ''}
                           </div>
                         </div>
                       </div>

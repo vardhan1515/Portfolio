@@ -49,6 +49,7 @@ export const portfolioConfig: PortfolioConfig = {
       name: 'Vardhan Burande',
       typingTexts: [
         'Data Engineering',
+        'Energy Market Analytics',
         'Machine Learning',
         'Analytics & Visualization',
       ],
@@ -81,6 +82,19 @@ export const portfolioConfig: PortfolioConfig = {
         },
       ],
       experience: [
+        {
+          company: 'University at Buffalo | Visual Computing Lab',
+          role: 'Research Assistant — Energy Market Analytics',
+          dates: 'Mar 2026 - Present',
+          location: 'Buffalo, NY',
+          highlights: [
+            'Build Python-based data pipelines to clean, transform, and structure NYISO electricity-market data for analysis.',
+            'Map generator records to grid nodes and geographic locations, preparing hourly datasets for Day-Ahead and Real-Time market analysis.',
+            'Analyze locational marginal prices, congestion, electricity demand, weather, and seasonal patterns to identify drivers of price variation and extreme events.',
+            'Apply statistical analysis, seasonal correlation, and outlier detection while developing visualizations of temporal and geographic market behavior.',
+            'Explore how distributed energy resources and Virtual Power Plants can respond to market conditions and grid-price signals, communicating findings to faculty and project stakeholders.',
+          ],
+        },
         {
           company: 'Machinery Monitoring Systems, LLC',
           role: 'Data Engineer Intern',
@@ -125,7 +139,6 @@ export const portfolioConfig: PortfolioConfig = {
           ],
         },
       ],
-      certifications: [],
     },
 
     projects: {

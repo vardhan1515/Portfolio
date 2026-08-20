@@ -189,11 +189,13 @@ const Home: React.FC<HomeProps> = ({ onConnectClick }) => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6"
             >
               <Button
-                href="#about"
+                href="/Vardhan_Burande_Resume.pdf"
                 label="View Resume"
                 icon={<ArrowRight size={18} />}
                 variant="primary"
                 iconType="arrow"
+                target="_blank"
+                rel="noopener noreferrer"
               />
 
               <Button

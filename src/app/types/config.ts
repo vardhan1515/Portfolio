@@ -90,7 +90,6 @@ export interface AboutSection {
     logo?: string;
     highlights: string[];
   }>;
-  certifications: string[];
 }
 
 /**

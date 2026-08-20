@@ -35,6 +35,11 @@ export const skills: Skill[] = [
         color: '#276DC3',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg',
       },
+      {
+        name: 'DAX',
+        color: '#F2C811',
+        icon: 'https://cdn.simpleicons.org/powerbi/F2C811',
+      },
     ],
   },
   {
@@ -106,6 +111,11 @@ export const skills: Skill[] = [
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
       },
       {
+        name: 'SQL Server',
+        color: '#CC2927',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg',
+      },
+      {
         name: 'SQLite',
         color: '#003B57',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg',
@@ -134,6 +144,36 @@ export const skills: Skill[] = [
         name: 'RStudio',
         color: '#75AADB',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rstudio/rstudio-original.svg',
+      },
+    ],
+  },
+  {
+    category: 'Analytics Methods',
+    technologies: [
+      {
+        name: 'Time-Series Analysis',
+        color: '#06B6D4',
+        icon: 'https://cdn.simpleicons.org/plotly/06B6D4',
+      },
+      {
+        name: 'Statistical Analysis',
+        color: '#8B5CF6',
+        icon: 'https://cdn.simpleicons.org/scipy/8B5CF6',
+      },
+      {
+        name: 'ETL / Data Pipelines',
+        color: '#F97316',
+        icon: 'https://cdn.simpleicons.org/apacheairflow/F97316',
+      },
+      {
+        name: 'RFM & Cohort Analysis',
+        color: '#EC4899',
+        icon: 'https://cdn.simpleicons.org/powerbi/EC4899',
+      },
+      {
+        name: 'Energy Market Analytics',
+        color: '#22C55E',
+        icon: 'https://cdn.simpleicons.org/openenergymonitor/22C55E',
       },
     ],
   },

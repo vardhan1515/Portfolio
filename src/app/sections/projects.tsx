@@ -78,7 +78,7 @@ const Projects: React.FC = () => {
     return () => {
       clearTimeout(carouselTimer.current);
     };
-  }, []);
+  }, [projects]);
 
   useEffect(() => {
     if (isMinimal) return;
@@ -111,7 +111,7 @@ const Projects: React.FC = () => {
     return () => {
       clearTimeout(carouselTimer.current);
     };
-  }, [hoveredProject, activeSlides]);
+  }, [hoveredProject, activeSlides, projects]);
 
   const navigateCarousel = (projectId: number, direction: number) => {
     const project = projects.find(p => p.id === projectId);
@@ -149,6 +149,10 @@ const Projects: React.FC = () => {
     const tagColors: Record<string, string> = {
       Python: 'bg-yellow-500/20 text-yellow-200 border-yellow-500/20',
       SQL: 'bg-sky-500/20 text-sky-200 border-sky-500/20',
+      'SQL Server': 'bg-red-500/20 text-red-200 border-red-500/20',
+      'Power BI': 'bg-amber-500/20 text-amber-200 border-amber-500/20',
+      Pandas: 'bg-indigo-500/20 text-indigo-200 border-indigo-500/20',
+      DAX: 'bg-orange-500/20 text-orange-200 border-orange-500/20',
       MySQL: 'bg-blue-500/20 text-blue-200 border-blue-500/20',
       SQLite: 'bg-indigo-500/20 text-indigo-200 border-indigo-500/20',
       Streamlit: 'bg-rose-500/20 text-rose-200 border-rose-500/20',
