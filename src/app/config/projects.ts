@@ -23,8 +23,7 @@ export const projects: Project[] = [
     description:
       'Built an end-to-end Inertial Measurement Unit (IMU) time-series workflow with Extract, Transform, Load (ETL), outlier handling, and feature engineering to classify exercises at 99.25% accuracy on 929 test samples and count repetitions at 0.35 Mean Absolute Error (MAE), then delivered analytics through a Streamlit app with file upload, key performance indicators (KPIs), progress trends, and report export.',
     tags: ['Python', 'Scikit-learn', 'LightGBM', 'LSTM'],
-    githubLink:
-      'https://github.com/vardhan1515/Smart-Workout-Tracking-using-Machine-Learning',
+    githubLink: 'https://github.com/vardhan1515/Smart-Workout-Tracking-using-Machine-Learning',
     liveLink: 'https://smart-workout-tracking-using-machine-learning.streamlit.app',
     thumbnail: '/Project-1.png',
   },
@@ -83,5 +82,23 @@ export const projects: Project[] = [
     tags: ['SQL Server', 'Power BI', 'Python', 'Pandas', 'DAX'],
     githubLink: 'https://github.com/vardhan1515',
     thumbnail: '/Project-7.jpg',
+  },
+  {
+    id: 8,
+    title: 'Energy Market Analytics Lakehouse',
+    description:
+      'Built three Databricks batch workflows with Bronze, Silver, and Gold Delta Lake tables, validation, deduplication, and data-quality checks. From 2023 to 2025, processed 52,560 usable EIA hourly demand and forecast records, evaluated 26,256 paired hours, and measured 2.37% day-ahead forecast MAPE in 2025. Processed 263,040 hourly weather records across 10 cities, published a four-page dashboard, and recorded 48 EIA source gaps without estimating missing values.',
+    tags: [
+      'Databricks',
+      'Python',
+      'PySpark',
+      'Delta Lake',
+      'SQL',
+      'MISO API',
+      'EIA API',
+      'Open-Meteo',
+    ],
+    githubLink: 'https://github.com/vardhan1515/energy-market-analytics-lakehouse',
+    thumbnail: '/Project-8.png',
   },
 ];
