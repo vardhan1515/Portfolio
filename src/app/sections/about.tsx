@@ -165,7 +165,7 @@ const About = () => {
                 company: item.company,
                 dates: item.dates,
                 location: item.location,
-                description: item.highlights.join(' '),
+                description: item.highlights.join('\n'),
                 logo: item.logo,
               }))}
             />
